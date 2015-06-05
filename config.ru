@@ -3,10 +3,10 @@ require 'sinatra'
 require 'json'
 
 configure do
-    set :api_key_mandrill => 'BT5enOtYBI0pLI4DrMoBmA',
+    set :api_key_mandrill => 'rhtggZx0VOn6V83NQzQjdA',
         :email_mandrill => 'connect@exsete.com',
-        :tag_mandrill => 'freidae-contact-form',
-        :subject_message_mandrill => "freidae contact us form"
+        :tag_mandrill => 'contact-exsete',
+        :subject_message_mandrill => "Exsete contact us form"
     end
 require './application'
 run Sinatra::Application

@@ -23,7 +23,7 @@ post '/send_email' do
       message = {"to"=>
         [{"email"=>settings.email_mandrill,
             "type"=>"to",
-            "name"=>"freidae"}],
+            "name"=>"Exsete"}],
      "subject"=>settings.subject_message_mandrill}
       resp=m.messages.send_template template_name, template_content, message
     if resp[0]['status'] == 'sent'
