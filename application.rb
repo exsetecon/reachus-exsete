@@ -1,4 +1,5 @@
 require 'net/http'
+require 'mandrill'
 before do
       content_type :json
       headers 'Access-Control-Allow-Origin' => '*',
@@ -9,7 +10,6 @@ end
     set :public_dir, Proc.new { File.join(root, "_site") }
 
 post '/send_email' do
-    require 'mandrill'
     m = Mandrill::API.new settings.api_key_mandrill
     template_name = settings.tag_mandrill
     template_content = [{
@@ -26,6 +26,7 @@ post '/send_email' do
             "name"=>"Exsete"}],
      "subject"=>settings.subject_message_mandrill}
       resp=m.messages.send_template template_name, template_content, message
+    put resp
     if resp[0]['status'] == 'sent'
       { :message => 'success' }.to_json
     else
