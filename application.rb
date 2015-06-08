@@ -26,7 +26,7 @@ post '/send_email' do
             "name"=>"Exsete"}],
      "subject"=>settings.subject_message_mandrill}
       resp=m.messages.send_template template_name, template_content, message
-    put resp
+    puts resp
     if resp[0]['status'] == 'sent'
       { :message => 'success' }.to_json
     else
