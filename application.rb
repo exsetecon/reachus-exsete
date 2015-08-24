@@ -13,6 +13,9 @@ post '/send_email' do
     m = Mandrill::API.new settings.api_key_mandrill
     template_name = settings.tag_mandrill
     template_content = [{
+     :name => 'fullName',
+     :content => params[:fullName]
+    },{
      :name => 'email',
      :content => params[:email]
     },
